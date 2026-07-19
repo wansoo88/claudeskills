@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 로컬 설정 백업(설치 시 생성)
+*.dps-backup
+
+# 프로젝트 런타임 산출물(플러그인 repo에는 불필요)
+**/.review-state.json

@@ -1,0 +1,18 @@
+{
+  "name": "data-product-studio",
+  "version": "0.9.0",
+  "description": "데이터팀이 부족한 역할(서비스전략·인프라/SW/DB 아키텍트·React 프론트·Docker 백엔드·QA)을 AI로 채워 데이터 프로덕트를 1인 개발하기 위한 재사용 스킬셋. 한국어 심층 인터뷰로 시작해 CLAUDE.md/skill.md와 6단계 산출물을 자동 생성한다.",
+  "author": {
+    "name": "serveone data team",
+    "email": "teamdata@serveone.co.kr"
+  },
+  "keywords": [
+    "data-product",
+    "korean-interview",
+    "architecture",
+    "code-review",
+    "security-review",
+    "qa"
+  ],
+  "license": "UNLICENSED"
+}

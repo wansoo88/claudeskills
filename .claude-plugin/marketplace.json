@@ -1,0 +1,17 @@
+{
+  "name": "data-product-studio",
+  "owner": {
+    "name": "serveone data team",
+    "email": "teamdata@serveone.co.kr"
+  },
+  "metadata": {
+    "description": "데이터 프로덕트 1인 개발용 다역할 스킬셋 마켓플레이스"
+  },
+  "plugins": [
+    {
+      "name": "data-product-studio",
+      "source": "./",
+      "description": "인터뷰→설계→구현(리뷰 게이트)→테스트→모니터링→인수인계 6단계 + 월간 갱신을 갖춘 데이터 프로덕트 개발 스킬셋."
+    }
+  ]
+}
