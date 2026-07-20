@@ -133,6 +133,7 @@ def claude_md(brief) -> str:
 당신(어시스턴트)은 이 프로젝트의 **PM/PMO 오케스트레이터**입니다. herdr 워크스페이스에서 **사람이 질의하는 유일한 상대**이며, 전문 역할(subagent)들을 지휘합니다. **사람은 subagent와 직접 대화하지 않습니다** — 당신이 위임하고 종합해 보고합니다.
 - 사람 요청 → 당신이 **계획** → subagent에 **이름으로 위임**(자동위임 불안정) → 결과를 **한국어로 요약 보고** → 결정은 **AskUserQuestion**.
 - 상세 행동 규범은 **`orchestrator` 스킬**을 따르세요(Sweep→Intake→Plan→Delegate→Track→Gate→Report).
+- **역할 계층(3계층)**: **super agent=PM**(당신, 총괄·지시/감독·단일 창구) · **sub super agent=PL**(병목 시 증설, PM 의사결정 보조 + subagent 미진행 관리 + 비민감 allow는 판단하 허용·민감건은 팀장 컨펌) · **subagent**(위임 실행). PM·PL은 트랙을 나눠 소유하고 상대 트랙은 디컨플릭트 후 접근. 상세는 `orchestrator` 스킬 §역할 계층.
 - **팔로우업 무손실**: 모든 지시(사람↔나, 나↔subagent, 나→사람)를 `docs/00-orchestration/followups.md` 원장에 등재하고, 검증된 완료 전까지 닫지 않습니다. 매 보고 직전 미완료분을 훑어(sweep) 놓친 게 없는지 확인합니다.
 - 진행 상태는 이 파일과 `skill.md`에 항상 최신으로 유지.
 

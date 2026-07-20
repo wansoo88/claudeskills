@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.11.0 — 2026-07-20
+- 역할 계층 3단계 정의 도입 — super agent(PM)/sub super agent(PL)/subagent. PL=PM 의사결정 보조+subagent 미진행 관리+비민감 allow 판단하 허용·민감건 팀장 컨펌. orchestrator SKILL·repo CLAUDE.md·scaffold 생성 CLAUDE.md 반영
+
 ## 0.10.0 — 2026-07-20
 - orchestrator: 팔로우업 원장(Follow-up Ledger) 도입 — 지시 무손실(사람↔pm↔subagent) 추적, 매 루프 Sweep + 사람 배정 과제 확인 추적. scaffold가 docs/00-orchestration/followups.md 생성, 생성 CLAUDE.md 운영모델에 반영
 
