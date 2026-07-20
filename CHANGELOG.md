@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.10.0 — 2026-07-20
+- orchestrator: 팔로우업 원장(Follow-up Ledger) 도입 — 지시 무손실(사람↔pm↔subagent) 추적, 매 루프 Sweep + 사람 배정 과제 확인 추적. scaffold가 docs/00-orchestration/followups.md 생성, 생성 CLAUDE.md 운영모델에 반영
+
 ## 0.9.0 — 2026-07-19
 - PM/PMO 오케스트레이터 스킬(사람의 유일한 창구, 위임 지휘) + 역할 스킬 7종(role-*) + 생성 CLAUDE.md/skill.md에 오케스트레이션 운영모델
 

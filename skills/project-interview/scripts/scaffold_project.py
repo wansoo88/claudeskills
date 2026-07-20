@@ -132,7 +132,8 @@ def claude_md(brief) -> str:
 ## 운영 모델 — PM/PMO 오케스트레이션
 당신(어시스턴트)은 이 프로젝트의 **PM/PMO 오케스트레이터**입니다. herdr 워크스페이스에서 **사람이 질의하는 유일한 상대**이며, 전문 역할(subagent)들을 지휘합니다. **사람은 subagent와 직접 대화하지 않습니다** — 당신이 위임하고 종합해 보고합니다.
 - 사람 요청 → 당신이 **계획** → subagent에 **이름으로 위임**(자동위임 불안정) → 결과를 **한국어로 요약 보고** → 결정은 **AskUserQuestion**.
-- 상세 행동 규범은 **`orchestrator` 스킬**을 따르세요(Intake→Plan→Delegate→Track→Gate→Report).
+- 상세 행동 규범은 **`orchestrator` 스킬**을 따르세요(Sweep→Intake→Plan→Delegate→Track→Gate→Report).
+- **팔로우업 무손실**: 모든 지시(사람↔나, 나↔subagent, 나→사람)를 `docs/00-orchestration/followups.md` 원장에 등재하고, 검증된 완료 전까지 닫지 않습니다. 매 보고 직전 미완료분을 훑어(sweep) 놓친 게 없는지 확인합니다.
 - 진행 상태는 이 파일과 `skill.md`에 항상 최신으로 유지.
 
 ## 프로젝트 개요
@@ -259,6 +260,20 @@ def requirements_md(brief) -> str:
 """
 
 
+def followups_md(brief) -> str:
+    """PM/PMO 팔로우업 원장 초안(지시 무손실 추적)."""
+    today = brief.get("created", str(date.today()))
+    return (
+        "# 팔로우업 원장 (Follow-up Ledger)\n"
+        "> 규칙: 모든 지시(사람↔나, 나↔subagent, 나→사람)를 등재. `done` 외 항목은 매 보고에서 다시 훑는다(sweep).\n"
+        "> 상태값: open(진행/대기) · blocked(막힘) · waiting-human(사람 확인 대기) · done(검증 완료).\n"
+        "> 상세 규범은 `orchestrator` 스킬 §팔로우업 원장 참조.\n\n"
+        "| ID | 등재일 | 요청자→담당 | 내용 | 기대 산출물 | 상태 | 기한 | 최근확인/비고 |\n"
+        "|----|--------|-------------|------|-------------|------|------|----------------|\n"
+        f"| F1 | {today} | 팀장→pm | (예시) 프로젝트 킥오프 | 계획 요약 | done | - | 삭제하고 실제 항목으로 |\n"
+    )
+
+
 def placeholder(stage_title, filename) -> str:
     return f"""# {filename} — {stage_title}
 
@@ -321,6 +336,10 @@ def main():
             else:
                 content = placeholder(title, fn)
             results.append(write_file(root / "docs" / folder / fn, content, args.force))
+
+    # PM/PMO 팔로우업 원장(지시 무손실) — 6단계 밖 상시 산출물
+    results.append(write_file(root / "docs" / "00-orchestration" / "followups.md",
+                              followups_md(brief), args.force))
 
     print("=== data-product-studio 골격 생성 결과 ===")
     for r in results:
