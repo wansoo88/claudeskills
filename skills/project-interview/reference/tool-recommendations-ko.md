@@ -12,6 +12,8 @@
 | 2 설계 | UML(시퀀스/클래스) | **PlantUML** 또는 **Mermaid** — 무료 | 코드 as diagram |
 | 2 설계 | API 명세 | **OpenAPI(Swagger)** — 무료 표준 | `openapi.yaml` → Swagger UI |
 | 2 설계 | 화면 디자인/와이어 | **Figma**(무료 티어) 또는 **Excalidraw**(무료) | Figma MCP 연동 |
+| 2·3 | 프론트 스택 | **Next.js(App Router) + TypeScript + Tailwind + shadcn/ui** | `serveone-bi-ui` 스킬 규약 |
+| 3 구현 | 차트/시각화 | **shadcn/ui charts(Recharts)** 기본 → 커스텀은 Recharts 직접 → heatmap·treemap·sankey·geo·10만 포인트+는 **ECharts**(`dynamic({ssr:false})`) | `serveone-bi-ui` §3 |
 | 2 설계 | 보안 설계 | **OWASP ASVS/Top10** 체크리스트(무료) | Confluence 문서 |
 | 3 구현 | 태스크/이슈 | **Jira** | Atlassian MCP |
 | 3 구현 | 코드리뷰 로그 | (내장) **code-reviewer** 서브에이전트 | docs/03-build |

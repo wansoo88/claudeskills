@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.12.0 — 2026-08-21
+- **`serveone-bi-ui` 스킬 신규** — 사내 BI/대시보드 UI 규약(화면 전 4질문·절대규칙·차트 라이브러리 라우팅·데이터 컬러 hex·마크 스펙·타이포/밀도·안티패턴). 내장 `dataviz`보다 우선. 조직 맥락·도메인 용어·미확정 링크는 `reference/serveone-context-ko.md`
+- **scaffold 생성 CLAUDE.md에 조직 맥락 + UI/UX 규약 항상 삽입** (`org_and_ui_md()`), 생성 skill.md 표에 `serveone-bi-ui` 상시 항목 추가
+- **`code-review`에 UI 게이트 12항목 추가 — 전부 fail 사유**(화면·차트 변경 PR 한정). 체크리스트·`code-reviewer` 에이전트 동기화
+- `frontend-react`·`role-frontend`를 Next.js App Router + TypeScript + Tailwind + shadcn/ui 스택으로 갱신, 서버/클라이언트 경계 규칙과 `serveone-bi-ui` 연계 명시
+- `tool-recommendations-ko.md`에 프론트 스택·차트 라이브러리 라우팅 행 추가
+- `/init-project`가 CLAUDE.md·skill.md 생성 확인을 명시하도록 보강
+
 ## 0.11.0 — 2026-07-20
 - 역할 계층 3단계 정의 도입 — super agent(PM)/sub super agent(PL)/subagent. PL=PM 의사결정 보조+subagent 미진행 관리+비민감 allow 판단하 허용·민감건 팀장 컨펌. orchestrator SKILL·repo CLAUDE.md·scaffold 생성 CLAUDE.md 반영
 

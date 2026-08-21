@@ -33,8 +33,15 @@
 - [x] 월간 갱신: refresh-skills 스킬 + /refresh-skills + bump_version.py + MONTHLY-REFRESH.md (로컬/수동, 검증 완료)
 
 - [x] 도입/설치: `project-adopt` + `/adopt-project`(기존 프로젝트 도입, scaffold `--adopt`), `INSTALL.md`(전역/프로젝트별/마켓플레이스 설치 + 발동 확인), `.claude-plugin/marketplace.json`
+- [x] 사내 UI 규약: `serveone-bi-ui`(BI/대시보드 화면 기준) + 조직 맥락·UI 규약을 scaffold 생성 CLAUDE.md에 항상 삽입 + `code-review`에 UI 게이트 12항목(전부 fail 사유)
 
 > **파이프라인 6단계 + 월간 갱신 + 기존 프로젝트 도입 + 설치 가이드 완료 (v0.5).** 이후는 실사용 피드백 반영·개별 스킬 심화.
+
+## 사내 UI 규약 (serveone-bi-ui)
+- 화면·차트 작업의 단일 기준. **내장 `dataviz` 스킬보다 우선**한다.
+- 상세 조회성 표(컬러 hex·마크 스펙·차트 선택 매트릭스)는 **스킬에만** 둔다. CLAUDE.md는 매 요청 컨텍스트에 상주하므로 항상 적용되는 제약만 싣는다.
+- 조직 맥락·도메인 용어·미확정 링크는 `skills/serveone-bi-ui/reference/serveone-context-ko.md`.
+- UI 게이트 12항목은 `skills/code-review/reference/code-review-checklist-ko.md` §UI 게이트에 동기화되어 있다. **한쪽만 고치지 말 것.**
 
 ## 신규 vs 기존 프로젝트
 - 신규: `/init-project` (전체 인터뷰 → 골격 생성).
