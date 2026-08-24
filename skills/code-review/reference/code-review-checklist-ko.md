@@ -24,8 +24,15 @@
 - [ ] 주석은 '왜'를 설명(자명한 '무엇'은 지양)
 
 ## 보안 냄새 (발견 시 security-review로 강하게 연계)
-- [ ] 하드코딩된 비밀정보 없음
-- [ ] 사용자입력 검증, SQL 파라미터 바인딩
+
+> 판정 기준 원문은 **사내 시큐어코딩 가이드 v1.0** — `../../security-review/reference/secure-coding-guide-ko.md`.
+> 코드리뷰는 '냄새'만 잡고 등급 판정은 security-review가 한다. 아래가 보이면 **반드시** security-review로 넘긴다.
+
+- [ ] 하드코딩된 비밀정보 없음 (제12조)
+- [ ] 사용자입력 검증, SQL 파라미터 바인딩 (제5·6조)
+- [ ] `eval`/`new Function`/`shell=True`/`child_process.exec` 없음 (제7·17·18조)
+- [ ] `innerHTML`·`dangerouslySetInnerHTML`·템플릿 raw 출력 없음 (제8조)
+- [ ] 외부 입력이 로그·파일경로·외부 URL로 그대로 흘러가지 않음 (제9·13·15조)
 
 ## UI 게이트 — 화면/차트 변경 시에만 적용 (12항목 **전부 fail 가능**)
 

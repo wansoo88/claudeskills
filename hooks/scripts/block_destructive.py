@@ -29,6 +29,8 @@ DANGEROUS = [
 
 
 def main():
+    if hasattr(sys.stderr, "reconfigure"):   # 차단 사유(한국어)가 깨지지 않게
+        sys.stderr.reconfigure(encoding="utf-8")
     raw = sys.stdin.read()
     try:
         data = json.loads(raw) if raw.strip() else {}

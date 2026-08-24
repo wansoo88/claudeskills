@@ -51,7 +51,15 @@
 ## 리뷰 게이트 동작 요약 (3단계)
 - `hooks/hooks.json`: PreToolUse(Bash)→ block_destructive + require_review, SubagentStop(code-reviewer|security-reviewer)→ record_review.
 - 원장 `docs/03-build/.review-state.json`의 `code_review`·`security_review`가 **둘 다 `passed`** 여야 `git commit`/`git push` 허용. 아니면 차단.
+- **예외 하나**: `security_review.status == "exception"` + 가이드 제9장 7요건(대상·사유·위험평가·보완통제·개선계획·**만료일**·승인자) 충족 + 미만료면 통과. **만료되면 자동 재차단.** 코드리뷰는 예외 없음.
 - 리뷰 판정은 code-review/security-review 스킬(+리뷰어 서브에이전트)이 기록. record_review는 백스톱.
+
+## 사내 보안 기준 (시큐어코딩 가이드)
+- **주 기준은 사내 시큐어코딩 가이드 v1.0(E.S11.G07)** — `skills/security-review/reference/secure-coding-guide-ko.md`.
+  OWASP 베이스라인은 보조. **충돌하면 사내 기준 우선**, 법령·계약·고객 요구가 더 엄격하면 그쪽 우선.
+- 판정은 **심각도 4등급**(제20조): 긴급·높음 = fail, 보통 = pass + followups 등재, 낮음 = 코멘트.
+- 원문 갱신 시 함께 손봐야 하는 것: 위 reference · `security-review/SKILL.md` · `agents/security-reviewer.md` ·
+  `security-design/SKILL.md` · `security-baseline-ko.md` 매핑표 · `scan_secure_coding.py` 규칙. **한쪽만 고치지 말 것.**
 
 ## 근거 문서
 - `background/research/claude-skills-트렌드-리서치-2026-07.md`
