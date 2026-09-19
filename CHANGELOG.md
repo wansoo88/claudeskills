@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.14.0 — 2026-09-19
+- **외부 추천 스킬 도입** — `EXTERNAL-SKILLS.md` 신규: watch(claude-video)·karpathy-guidelines·superpowers·understand-anything·agentmemory·skill-creator·impeccable 7종의 무엇/언제/hook/외부 전송 표, Windows 추가 준비, 공존 규칙(우선순위: 사람 지시·CLAUDE.md > 스킬셋 > 외부 스킬). 코드는 vendoring하지 않고 원 저장소 마켓플레이스에서 설치
+- **`tools/install_external_skills.ps1` 신규** — 마켓플레이스 등록 + user scope 플러그인 설치(설치된 것은 건너뜀) + watch 의존성(ffmpeg·yt-dlp) winget 설치. `-DryRun`·`-SkipDeps`·`-SkipAgentMemory`. agentmemory 엔진(iii v0.11.2)은 수동 단계 안내만 출력
+- **UI 우선순위 확장** — `serveone-bi-ui` > `impeccable` > `dataviz`. impeccable은 품질 점검(audit·critique·harden)용, 컬러·폰트·밀도는 사내 규약 유지 (CLAUDE.md·`serveone-bi-ui/SKILL.md`)
+- **superpowers 위치 지정** — 6단계 안의 기법(TDD·systematic-debugging·verification)으로만. 1단계는 `project-interview`, 리뷰 게이트는 대체 불가
+- **외부 전송 금지 원칙 명시** — agentmemory는 keyless/로컬 임베딩, watch는 기밀 영상에 `--no-whisper`
+- Remotion(영상 보너스)은 Remotion 사용자 전용이라 제외
+- README·INSTALL·MONTHLY-REFRESH에 외부 스킬 안내 추가
+
 ## 0.13.0 — 2026-08-24
 - **사내 시큐어코딩 가이드 v1.0(E.S11.G07) 준수 반영** — `security-review/reference/secure-coding-guide-ko.md` 신규. 제5~18조 코딩 기준(취약/안전 예시 포함), 언어별 기준(Python 제17조·JS/TS 제18조), 오픈소스·SBOM, 별첨1 점검 체크리스트 20항목, 증적 목록을 리뷰 실행 기준으로 재구성. **사내 기준이 OWASP보다 우선**
 - **심각도 4등급 판정 도입(제20조)** — 긴급·높음 = `failed`, 보통 = pass 가능하되 followups 등재 필수, 낮음 = 코멘트. 기존의 임의 fail 조건을 대체

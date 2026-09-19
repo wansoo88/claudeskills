@@ -108,6 +108,19 @@ Claude Code 안에서:
 
 ---
 
+## 외부 추천 스킬 (선택)
+
+스킬셋과 함께 쓰는 서드파티 스킬 7종(watch·karpathy-guidelines·superpowers·understand-anything·agentmemory·skill-creator·impeccable)은
+원 저장소 마켓플레이스에서 설치한다:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\install_external_skills.ps1   # -DryRun 으로 미리보기
+```
+
+agentmemory 엔진·watch 의존성 같은 Windows 추가 준비와 **공존 규칙(충돌 시 우선순위)** 은 [EXTERNAL-SKILLS.md](EXTERNAL-SKILLS.md).
+
+---
+
 ## 문제 해결
 - 커맨드가 안 보임 → 복사 위치/재시작 확인, 파일이 `~/.claude/commands/*.md`에 있는지.
 - 훅이 안 걸림 → `settings.json` 병합·JSON 유효성·`python` PATH 확인. 훅은 Bash 도구에서 가장 확실.

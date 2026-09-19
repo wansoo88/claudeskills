@@ -24,6 +24,7 @@ python skills/refresh-skills/scripts/bump_version.py --level minor --note "2026-
 - Claude Skills 스펙 변화는 **agentskills.io** 기준(구 anthropics/skills 스펙은 stub).
 - 파괴적/중요 변경은 `CHANGELOG.md`에 명확히.
 - reference 갱신 후 각 SKILL.md 본문이 여전히 500줄 미만인지 확인.
+- 외부 추천 스킬(`EXTERNAL-SKILLS.md`): `claude plugin update`로 올리고, **hook·외부 전송 동작이 바뀌었는지** 확인해 표를 갱신.
 
 ## 버전 규칙(semver)
 - **minor**(기본): 트렌드 반영·항목 추가.

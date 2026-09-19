@@ -9,7 +9,7 @@
 
 각 역할은 3중 표현: `agents/`(subagent 페르소나) + `skills/role-*`(전문성 카드) + `skills/*`(그 역할의 절차).
 
-## 현재 상태 (v0.12 — 전 구간 + PM/PMO 오케스트레이션 + 도입/설치 + 사내 UI 규약)
+## 현재 상태 (v0.14 — 전 구간 + PM/PMO 오케스트레이션 + 도입/설치 + 사내 UI·보안 규약 + 외부 추천 스킬)
 인터뷰→인수인계 6단계, 가이드 모드, 월간 갱신, 기존 프로젝트 도입, PM/PMO 오케스트레이터, 사내 BI UI 규약, 설치/사용/저작 문서까지 구현·검증. (9 subagent · 22 skill · 5 command)
 - ✅ **UI 규약**: `serveone-bi-ui` — 사내 BI/대시보드 화면 기준(차트 라이브러리 라우팅·데이터 컬러·밀도·한글 타이포). UI 게이트 12항목은 `code-review`의 fail 사유
 - ✅ **오케스트레이션**: `orchestrator`(PM/PMO) + 역할 스킬 `role-*` 7종
@@ -23,6 +23,7 @@
 | [INSTALL.md](INSTALL.md) | 설치 & 발동 확인 (신규/기존 어디서나) |
 | [AUTHORING-SKILLS.md](AUTHORING-SKILLS.md) | **스킬 직접 만드는 법** (팀 확장용) |
 | [MONTHLY-REFRESH.md](MONTHLY-REFRESH.md) | 월간 갱신 루틴 |
+| [EXTERNAL-SKILLS.md](EXTERNAL-SKILLS.md) | **함께 쓰는 외부 스킬** 7종(watch·superpowers·impeccable 등) 설치·공존 규칙 |
 | CLAUDE.md | 스킬셋 개발 규약 |
 
 - ✅ **1단계 인터뷰**: `project-interview`(한국어 4라운드) + `service-strategist` + `/init-project` + `scaffold_project.py`
@@ -72,6 +73,7 @@ data-product-studio/
 ## 설치 & 발동 확인
 - **가장 쉬운 설치(권장)**: 소스 폴더에서 `powershell -ExecutionPolicy Bypass -File .\install.ps1` 실행 → `~/.claude`로 복사 + 훅 병합 자동.
 - 수동 설치·프로젝트별·마켓플레이스 방법은 [INSTALL.md](INSTALL.md) 참고.
+- **외부 추천 스킬**(선택): `powershell -ExecutionPolicy Bypass -File .\tools\install_external_skills.ps1` — 목록·공존 규칙은 [EXTERNAL-SKILLS.md](EXTERNAL-SKILLS.md).
 - 설치 후 **Claude Code 재시작** → `/` 입력 시 `init-project` 등이 보이면 완료.
 
 ## 🖥️ 다른 PC에서 첫 시작 (부트스트랩)

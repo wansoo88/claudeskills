@@ -34,14 +34,22 @@
 
 - [x] 도입/설치: `project-adopt` + `/adopt-project`(기존 프로젝트 도입, scaffold `--adopt`), `INSTALL.md`(전역/프로젝트별/마켓플레이스 설치 + 발동 확인), `.claude-plugin/marketplace.json`
 - [x] 사내 UI 규약: `serveone-bi-ui`(BI/대시보드 화면 기준) + 조직 맥락·UI 규약을 scaffold 생성 CLAUDE.md에 항상 삽입 + `code-review`에 UI 게이트 12항목(전부 fail 사유)
+- [x] 외부 추천 스킬: `EXTERNAL-SKILLS.md`(7종 목록·공존 규칙) + `tools/install_external_skills.ps1`(멱등 설치)
 
 > **파이프라인 6단계 + 월간 갱신 + 기존 프로젝트 도입 + 설치 가이드 완료 (v0.5).** 이후는 실사용 피드백 반영·개별 스킬 심화.
 
 ## 사내 UI 규약 (serveone-bi-ui)
-- 화면·차트 작업의 단일 기준. **내장 `dataviz` 스킬보다 우선**한다.
+- 화면·차트 작업의 단일 기준. **내장 `dataviz`·외부 `impeccable` 스킬보다 우선**한다.
 - 상세 조회성 표(컬러 hex·마크 스펙·차트 선택 매트릭스)는 **스킬에만** 둔다. CLAUDE.md는 매 요청 컨텍스트에 상주하므로 항상 적용되는 제약만 싣는다.
 - 조직 맥락·도메인 용어·미확정 링크는 `skills/serveone-bi-ui/reference/serveone-context-ko.md`.
 - UI 게이트 12항목은 `skills/code-review/reference/code-review-checklist-ko.md` §UI 게이트에 동기화되어 있다. **한쪽만 고치지 말 것.**
+
+## 외부 추천 스킬 공존 (EXTERNAL-SKILLS.md)
+- 코드는 vendoring하지 않고 원 저장소 마켓플레이스에서 설치한다. 목록·설치·Windows 준비는 `EXTERNAL-SKILLS.md`.
+- 우선순위: **사람 지시·CLAUDE.md > 이 스킬셋 > 외부 스킬.** UI는 `serveone-bi-ui` > `impeccable` > `dataviz`.
+- `superpowers`는 6단계 **안의 기법**(TDD·systematic-debugging·verification)으로만 쓴다. 1단계는 `project-interview`, 리뷰 게이트는 `code-review`·`security-review`가 대체 불가.
+- 사내 코드·데이터는 외부 LLM/API로 보내지 않는다: agentmemory는 keyless/로컬 임베딩, watch는 기밀 영상에 `--no-whisper`.
+- 외부 스킬 목록을 바꾸면 `EXTERNAL-SKILLS.md`와 `tools/install_external_skills.ps1`을 **같이** 고친다.
 
 ## 신규 vs 기존 프로젝트
 - 신규: `/init-project` (전체 인터뷰 → 골격 생성).
